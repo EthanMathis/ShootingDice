@@ -8,20 +8,22 @@ namespace ShootingDice
     {
         static void Main(string[] args)
         {
-            Player player1 = new SoreLoserPlayer();
-            player1.Name = "Bob";
+            Player soreUpper = new SoreLoserUpperHalfPlayer();
+            soreUpper.Name = "Cry Baby";
+
+            Player upperHalf = new UpperHalfPlayer();
+            upperHalf.Name = "Upper";
+
+            Player loser = new SoreLoserPlayer();
+            loser.Name = "Loser";
+
+            Player player1 = new HumanPlayer();
+            player1.Name = "Ethan";
 
             Player player2 = new OneHigherPlayer();
             player2.Name = "Sue";
 
-            try
-            {
-                player2.Play(player1);
-            }
-            catch (NotSupportedException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            player2.Play(player1);
 
             Console.WriteLine("-------------------");
 
@@ -40,7 +42,7 @@ namespace ShootingDice
             Console.WriteLine("-------------------");
 
             List<Player> players = new List<Player>() {
-                player1, player2, player3, large
+                player1, player2, player3, large, loser, upperHalf, soreUpper
             };
 
             PlayMany(players);
